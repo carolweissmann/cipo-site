@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudos Clínicos — CIPO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="../index.html" class="logo">
+    <div class="logo-mark">CIPO</div>
+    <span class="logo-text">Centro Integrado de<br>Pesquisa em Oncologia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre o CIPO</a></li>
+    <li><a href="estudos.html" class="active">Estudos Clínicos</a></li>
+    <li><a href="recrutador.html">Potencial Recrutador</a></li>
+    <li><a href="novidades.html">Novidades</a></li>
+    <li><a href="contato.html" class="nav-cta">Contato</a></li>
+  </ul>
+</nav>
+
+<section>
+  <div class="estudos-header">
+    <div>
+      <span class="section-tag">Estudos Abertos</span>
+      <h1 class="section-title">Estudos Clínicos<br>em Recrutamento</h1>
+    </div>
+    <!-- Busca com filtro em tempo real -->
+    <div class="estudos-search">
+      <span>🔍</span>
+      <input
+        type="text"
+        placeholder="Buscar estudo ou tipo de câncer…"
+        id="search-input"
+        oninput="filterStudies()"
+      >
+    </div>
+  </div>
+
+  <!-- ══ CABEÇA E PESCOÇO ══ -->
+  <div class="cancer-type fade-in" data-type="cabeça pescoço">
+    <div class="cancer-type-header">
+      <div class="cancer-type-dot"></div>
+      <h2 class="cancer-type-title">Câncer de Cabeça e Pescoço</h2>
+    </div>
+    <div class="study-cards">
+
+      <div class="study-card">
+        <div class="study-name">
+          eVOLVE-HNSCC Cabeça e Pescoço – Pós cCRT – SLOT REQUEST
+          <span class="study-badge">Solicitar vaga</span>
+        </div>
+        <ul class="study-criteria">
+          <li>HNSCC Estágios III, IVA ou IVB LA não ressecado</li>
+          <li>SCC de OP, OC, HP ou LX</li>
+          <li>Doença controlada após cCRT definitiva</li>
+          <li>Amostra de tecido disponível para PD-L1</li>
+          <li>Status de HPV (p16) conhecido (somente OPC)</li>
+          <li>ECOG 0-1</li>
+          <li>Tratamento: Volrustomig X Observação</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+      <div class="study-card">
+        <div class="study-name">LiGeR-HN-01 MCLA-158-CL03 – 1ª Linha CPS ≥ 1%</div>
+        <ul class="study-criteria">
+          <li>HNSCC metastático ou localmente recorrente</li>
+          <li>Permitida terapia anterior 6 meses antes</li>
+          <li>CPS ≥ 1</li>
+          <li>ECOG 0-1</li>
+          <li>Tratamento: Petosemtamabe + Pembrolizumabe X Pembrolizumabe</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ PULMÃO ══ -->
+  <div class="cancer-type fade-in" data-type="pulmão">
+    <div class="cancer-type-header">
+      <div class="cancer-type-dot"></div>
+      <h2 class="cancer-type-title">Câncer de Pulmão</h2>
+    </div>
+    <div class="study-cards">
+
+      <div class="study-card">
+        <div class="study-name">MK2870-019 – Neoadj e Adj</div>
+        <ul class="study-criteria">
+          <li>NSCLC escamoso e não escamoso, ressecável, Estágio II-IIIB(N2)</li>
+          <li>ECOG 0-1</li>
+          <li>EGFR não mutado</li>
+          <li>Capaz de receber tratamento neoadj</li>
+          <li>Tratamento: Neoadj: Pembrolizumabe + QT / Adj: MK2870 + Pembrolizumabe</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+      <div class="study-card">
+        <div class="study-name">V940-009 – NSCLC Neoadjuvante/Adjuvante</div>
+        <ul class="study-criteria">
+          <li>NSCLC Estágios II-IIIB (N2)</li>
+          <li>Capaz de receber quimio + pembro</li>
+          <li>Excluir mutação EGFR</li>
+          <li>Após cirurgia concluída (R0-R1), tecido cirúrgico adequado disponível</li>
+          <li>ECOG 0-1</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+      <div class="study-card">
+        <div class="study-name">V940-002 Manutenção Pós-adjuvância</div>
+        <ul class="study-criteria">
+          <li>NSCLC Ressecado (R0), Estágio II, IIIA e IIIB (N2)</li>
+          <li>Sem tratamento neoadjuvante</li>
+          <li>Recebeu QT adjuvante com dupla de platina sem recorrência</li>
+          <li>EGFR negativo</li>
+          <li>ECOG 0-1</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+      <div class="study-card">
+        <div class="study-name">DeLLphi-306 – SCLC</div>
+        <ul class="study-criteria">
+          <li>CPPC doença limitada e tratado com 3 ou 4 ciclos de QT (platina) e RT con-comitantes</li>
+          <li>Pts com doença estágio I-III elegíveis desde que não sejam candidatos à ressecção</li>
+          <li>ECOG 0-1</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ ESÔFAGO / GÁSTRICO ══ -->
+  <div class="cancer-type fade-in" data-type="esôfago gástrico">
+    <div class="cancer-type-header">
+      <div class="cancer-type-dot"></div>
+      <h2 class="cancer-type-title">Câncer de Esôfago ou Gástrico</h2>
+    </div>
+    <div class="study-cards">
+
+      <div class="study-card">
+        <div class="study-name">ARTEMIDE-Gastric01 – 1ª Linha</div>
+        <ul class="study-criteria">
+          <li>Gástrico ou ds IGE localmente avançado ou mtx confirmado histologicamente</li>
+          <li>Sem terapia sistêmica anterior para doença avançada</li>
+          <li>HER2+ (IHC3+ ou 2+/ISH-positivo)</li>
+          <li>CPS ≥ 1</li>
+          <li>ECOG 0-1</li>
+          <li>Tratamento: Rilve + T-DXd + 5-FU/Cape X Pembro + Trastuzumabe + 5-FU/Cape</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+      <div class="study-card">
+        <div class="study-name">MK3475-068 – 2ª Linha</div>
+        <ul class="study-criteria">
+          <li>ESCC localmente avançado ou mtx 2ª linha anteriormente expostos à terapia com PD-1/PD-L1</li>
+          <li>Bloco tumoral disponível</li>
+        </ul>
+        <a href="https://clinicaltrials.gov" class="study-link" target="_blank">
+          Acessar no Clinical Trials ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Adicione mais blocos .cancer-type conforme necessário -->
+
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">CIPO</div>
+    <p class="footer-tagline">Centro Integrado de Pesquisa em Oncologia</p>
+  </div>
+  <div class="footer-links">
+    <a href="../index.html">Início</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <div class="footer-copy">© 2026 CIPO | Centro Integrado de Pesquisa em Oncologia</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

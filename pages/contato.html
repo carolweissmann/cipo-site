@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — CIPO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="../index.html" class="logo">
+    <div class="logo-mark">CIPO</div>
+    <span class="logo-text">Centro Integrado de<br>Pesquisa em Oncologia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre o CIPO</a></li>
+    <li><a href="estudos.html">Estudos Clínicos</a></li>
+    <li><a href="recrutador.html">Potencial Recrutador</a></li>
+    <li><a href="novidades.html">Novidades</a></li>
+    <li><a href="contato.html" class="nav-cta active">Contato</a></li>
+  </ul>
+</nav>
+
+<section>
+  <div class="contact-grid">
+
+    <!-- ══ INFORMAÇÕES DE CONTATO ══ -->
+    <div class="fade-in">
+      <div class="contact-info-title">Fale com o CIPO</div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Endereço</div>
+          <div class="contact-detail-value">
+            Av. Francisco Trein, 596 – Sala 3140 – Bloco E<br>
+            Cristo Redentor – Porto Alegre/RS – 91350-200
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Telefone</div>
+          <div class="contact-detail-value">(51) 3516-0954</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">💬</div>
+        <div>
+          <div class="contact-detail-label">WhatsApp</div>
+          <div class="contact-detail-value">(51) 3357 2092</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div>
+          <div class="contact-detail-label">Horário de Atendimento</div>
+          <div class="contact-detail-value">Segunda a Sexta, 8h30 às 17h30</div>
+        </div>
+      </div>
+
+      <!-- Para usar o Google Maps real, substitua a div abaixo por um <iframe> -->
+      <div class="map-placeholder">
+        <div class="map-icon">🗺</div>
+        <span>Av. Francisco Trein, 596 — Porto Alegre/RS</span>
+        <a
+          href="https://maps.google.com/?q=Av+Francisco+Trein+596+Porto+Alegre"
+          target="_blank"
+          style="color: var(--teal); font-size: 13px;"
+        >
+          Ver no Google Maps ↗
+        </a>
+      </div>
+
+      <!-- Exemplo de iframe do Google Maps (descomente e substitua o src):
+      <iframe
+        src="https://www.google.com/maps/embed?pb=SEU_EMBED_AQUI"
+        width="100%" height="220" style="border:0; border-radius:12px; margin-top:24px;"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+      -->
+    </div>
+
+    <!-- ══ FORMULÁRIO ══ -->
+    <div class="fade-in contact-form">
+      <div class="contact-form-title">Entre em contato conosco</div>
+
+      <!-- Para enviar de verdade, use Formspree, EmailJS ou um backend próprio -->
+      <!-- Exemplo com Formspree: <form action="https://formspree.io/f/SEU_ID" method="POST"> -->
+
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome completo">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com">
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui…"></textarea>
+      </div>
+
+      <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="handleSubmit()">
+        Enviar mensagem →
+      </button>
+
+      <p style="font-size: 13px; color: var(--ink-soft); margin-top: 14px;">
+        Iremos retornar sua mensagem o mais rápido possível.
+      </p>
+
+      <div
+        id="form-success"
+        style="display: none; margin-top: 16px; background: var(--teal-pale);
+               border: 1px solid var(--teal); border-radius: 8px; padding: 14px 18px;
+               color: var(--teal-dark); font-size: 14px;"
+      >
+        ✓ Mensagem enviada com sucesso! Retornaremos em breve.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">CIPO</div>
+    <p class="footer-tagline">Centro Integrado de Pesquisa em Oncologia</p>
+  </div>
+  <div class="footer-links">
+    <a href="../index.html">Início</a>
+    <a href="estudos.html">Estudos</a>
+    <a href="#">Cookies</a>
+  </div>
+  <div class="footer-copy">© 2026 CIPO | Centro Integrado de Pesquisa em Oncologia</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

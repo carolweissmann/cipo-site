@@ -1,0 +1,1885 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIPO — Centro Integrado de Pesquisa em Oncologia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --teal: #0d8c78;
+        --teal-light: #1aad94;
+        --teal-pale: #e6f5f2;
+        --teal-dark: #075c4f;
+        --ink: #0f1f1d;
+        --ink-mid: #3a5450;
+        --ink-soft: #7a9e99;
+        --cream: #f7f9f8;
+        --white: #ffffff;
+        --border: rgba(13, 140, 120, 0.12);
+        --radius: 12px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--white);
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ── NAVBAR ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+        height: 68px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 24px rgba(13, 140, 120, 0.08);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        border: 2px solid var(--teal);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--teal);
+        letter-spacing: 0.5px;
+      }
+      .logo-text {
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-mid);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--ink-mid);
+        padding: 6px 14px;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--teal-pale);
+        color: var(--teal-dark);
+      }
+      .nav-cta {
+        background: var(--teal) !important;
+        color: var(--white) !important;
+        padding: 8px 18px !important;
+      }
+      .nav-cta:hover {
+        background: var(--teal-dark) !important;
+      }
+
+      /* ── PAGES ── */
+      .page {
+        display: none;
+        min-height: 100vh;
+        padding-top: 68px;
+      }
+      .page.active {
+        display: block;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        min-height: calc(100vh - 68px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+      }
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 6vw 80px 8vw;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: var(--teal-pale);
+        border-radius: 100px;
+        padding: 6px 14px;
+        margin-bottom: 32px;
+        width: fit-content;
+      }
+      .hero-tag::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--teal);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.4rem, 4vw, 3.6rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--ink);
+        margin-bottom: 24px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--teal);
+      }
+      .hero-desc {
+        font-size: 17px;
+        color: var(--ink-mid);
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: 44px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--teal);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        padding: 14px 28px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        background: var(--teal-dark);
+        transform: translateY(-1px);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--teal);
+        border: 1.5px solid var(--teal);
+        border-radius: 8px;
+        padding: 14px 28px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-secondary:hover {
+        background: var(--teal-pale);
+        transform: translateY(-1px);
+      }
+
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0d8c78 0%, #075c4f 100%);
+      }
+      .hero-right-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-stats {
+        display: grid;
+        gap: 20px;
+        padding: 40px;
+        width: 100%;
+      }
+      .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        padding: 24px 28px;
+        backdrop-filter: blur(4px);
+        animation: fadeUp 0.7s ease both;
+      }
+      .stat-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .stat-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .stat-num {
+        font-family: "Fraunces", serif;
+        font-size: 2.8rem;
+        font-weight: 300;
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .stat-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .hero-bg-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.07;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          white 1px,
+          transparent 0
+        );
+        background-size: 32px 32px;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── QUICK INFO BAR ── */
+      .info-bar {
+        background: var(--cream);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 32px 8vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .info-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        background: var(--teal-pale);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+      .info-label {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-soft);
+        margin-bottom: 4px;
+      }
+      .info-value {
+        font-size: 15px;
+        color: var(--ink-mid);
+      }
+
+      /* ── SECTION SHARED ── */
+      section {
+        padding: 80px 8vw;
+      }
+      .section-tag {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 16px;
+        display: block;
+      }
+      .section-title {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 300;
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .section-body {
+        font-size: 17px;
+        color: var(--ink-mid);
+        line-height: 1.75;
+        max-width: 640px;
+        margin-bottom: 40px;
+      }
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0 8vw;
+      }
+
+      /* ── MISSION PILLARS ── */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 48px;
+      }
+      .pillar {
+        background: var(--cream);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        border: 1px solid var(--border);
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .pillar:hover {
+        border-color: var(--teal);
+        transform: translateY(-3px);
+      }
+      .pillar-icon {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+      .pillar-name {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--teal-dark);
+        margin-bottom: 10px;
+      }
+      .pillar-desc {
+        font-size: 14px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      /* ── SOBRE PAGE ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--ink-mid);
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      .about-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .about-img-placeholder {
+        border-radius: 10px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--teal-pale), #cdeae4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal);
+        font-size: 40px;
+      }
+      .about-img-placeholder:first-child {
+        grid-column: 1;
+        height: 180px;
+      }
+      .about-img-placeholder:nth-child(2) {
+        grid-column: 2;
+        height: 180px;
+      }
+      .about-img-placeholder:nth-child(3) {
+        grid-column: 1;
+        height: 180px;
+      }
+      .about-img-placeholder:nth-child(4) {
+        grid-column: 2;
+        height: 180px;
+      }
+
+      /* team */
+      .team-section {
+        background: var(--cream);
+      }
+      .team-category {
+        margin-bottom: 36px;
+      }
+      .team-cat-title {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal);
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+        border-bottom: 2px solid var(--teal-pale);
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+      }
+      .team-card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 16px 20px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .team-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--teal-pale), #cdeae4);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: var(--teal);
+        font-weight: 500;
+      }
+      .team-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .team-role {
+        font-size: 12px;
+        color: var(--ink-soft);
+        margin-top: 2px;
+      }
+
+      /* testimony */
+      .testimony {
+        background: var(--teal);
+        border-radius: 20px;
+        padding: 48px 56px;
+        margin-top: 48px;
+        position: relative;
+        overflow: hidden;
+      }
+      .testimony::before {
+        content: '"';
+        font-family: "Fraunces", serif;
+        font-size: 14rem;
+        color: rgba(255, 255, 255, 0.08);
+        position: absolute;
+        top: -40px;
+        left: 32px;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .testimony-text {
+        font-family: "Fraunces", serif;
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-style: italic;
+        color: var(--white);
+        line-height: 1.6;
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+      .testimony-author {
+        margin-top: 24px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── ESTUDOS PAGE ── */
+      .estudos-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+      .estudos-search {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background: var(--cream);
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        padding: 10px 16px;
+        width: 300px;
+      }
+      .estudos-search input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        color: var(--ink);
+        width: 100%;
+      }
+      .estudos-search input::placeholder {
+        color: var(--ink-soft);
+      }
+
+      .cancer-type {
+        margin-bottom: 52px;
+      }
+      .cancer-type-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .cancer-type-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--teal);
+        border-radius: 50%;
+      }
+      .cancer-type-title {
+        font-family: "Fraunces", serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--ink);
+      }
+      .study-cards {
+        display: grid;
+        gap: 16px;
+      }
+      .study-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        border-left: 4px solid var(--teal);
+        transition: box-shadow 0.2s;
+      }
+      .study-card:hover {
+        box-shadow: 0 4px 24px rgba(13, 140, 120, 0.1);
+      }
+      .study-name {
+        font-weight: 500;
+        color: var(--teal-dark);
+        font-size: 15px;
+        margin-bottom: 14px;
+      }
+      .study-badge {
+        display: inline-block;
+        background: #fff3cd;
+        color: #7a5c00;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 3px 10px;
+        border-radius: 100px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+      .study-criteria {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .study-criteria li {
+        background: var(--teal-pale);
+        color: var(--teal-dark);
+        font-size: 12px;
+        padding: 4px 12px;
+        border-radius: 100px;
+      }
+      .study-link {
+        font-size: 13px;
+        color: var(--teal);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .study-link:hover {
+        color: var(--teal-dark);
+      }
+
+      /* ── RECRUTADOR PAGE ── */
+      .recruta-hero {
+        background: linear-gradient(
+          135deg,
+          var(--teal-dark) 0%,
+          var(--teal) 100%
+        );
+        border-radius: 20px;
+        padding: 56px 60px;
+        color: var(--white);
+        margin-bottom: 48px;
+      }
+      .recruta-hero h2 {
+        font-family: "Fraunces", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 16px;
+      }
+      .recruta-hero p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 560px;
+      }
+      .recruta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .recruta-card {
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .recruta-card:hover {
+        border-color: var(--teal);
+        transform: translateY(-2px);
+      }
+      .recruta-cancer {
+        font-weight: 500;
+        color: var(--teal-dark);
+        font-size: 16px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .recruta-rank {
+        background: var(--teal);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 500;
+        padding: 3px 10px;
+        border-radius: 100px;
+      }
+      .recruta-detail {
+        font-size: 14px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      /* ── NOVIDADES PAGE ── */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 40px;
+      }
+      .news-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--white);
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .news-card:hover {
+        box-shadow: 0 6px 32px rgba(13, 140, 120, 0.1);
+        transform: translateY(-3px);
+      }
+      .news-thumb {
+        height: 180px;
+        background: linear-gradient(135deg, var(--teal-pale), #b8e6de);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+      }
+      .news-body {
+        padding: 20px 22px;
+      }
+      .news-date {
+        font-size: 12px;
+        color: var(--ink-soft);
+        margin-bottom: 8px;
+      }
+      .news-title {
+        font-weight: 500;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .news-excerpt {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .instagram-section {
+        background: var(--cream);
+        padding: 60px 8vw;
+      }
+      .insta-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-top: 32px;
+      }
+      .insta-cell {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, var(--teal-pale), #b8e6de);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+      .insta-cell:hover {
+        opacity: 0.85;
+      }
+
+      /* ── CONTATO PAGE ── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .contact-info-title {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--ink);
+        margin-bottom: 32px;
+      }
+      .contact-detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .contact-detail-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--teal-pale);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .contact-detail-label {
+        font-size: 12px;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+      }
+      .contact-detail-value {
+        font-size: 15px;
+        color: var(--ink-mid);
+      }
+
+      .map-placeholder {
+        margin-top: 24px;
+        height: 220px;
+        background: linear-gradient(135deg, #e0f2ee, #c5e8e0);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+        color: var(--teal);
+        font-size: 14px;
+      }
+      .map-placeholder .map-icon {
+        font-size: 32px;
+      }
+
+      .contact-form-title {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--ink);
+        margin-bottom: 32px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-mid);
+        margin-bottom: 8px;
+        letter-spacing: 0.03em;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--cream);
+        outline: none;
+        transition: border-color 0.2s;
+        resize: vertical;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--teal);
+        background: var(--white);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 48px 8vw 32px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: end;
+      }
+      .footer-logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: var(--white);
+        margin-bottom: 8px;
+      }
+      .footer-tagline {
+        font-size: 13px;
+      }
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--white);
+      }
+      .footer-copy {
+        grid-column: 1 / -1;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 20px;
+        font-size: 12px;
+      }
+
+      /* ── SCROLL ANIMATIONS ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="#" class="logo" onclick="showPage('home')">
+        <div class="logo-mark">CIPO</div>
+        <span class="logo-text"
+          >Centro Integrado de<br />Pesquisa em Oncologia</span
+        >
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="#" onclick="showPage('home')" class="active" id="nav-home"
+            >Início</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showPage('sobre')" id="nav-sobre"
+            >Sobre o CIPO</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showPage('estudos')" id="nav-estudos"
+            >Estudos Clínicos</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showPage('recrutador')" id="nav-recrutador"
+            >Potencial Recrutador</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showPage('novidades')" id="nav-novidades"
+            >Novidades</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            onclick="showPage('contato')"
+            id="nav-contato"
+            class="nav-cta"
+            >Contato</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ══ HOME ══ -->
+    <div class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-left">
+          <div class="hero-tag">Porto Alegre, RS</div>
+          <h1>Pesquisa clínica em <em>oncologia</em> de excelência</h1>
+          <p class="hero-desc">
+            O CIPO conduz estudos clínicos nacionais e internacionais com foco
+            na segurança do paciente e no acesso a tratamentos inovadores contra
+            o câncer.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn-primary" onclick="showPage('estudos')"
+              >Ver Estudos Clínicos →</a
+            >
+            <a href="#" class="btn-secondary" onclick="showPage('sobre')"
+              >Conheça o CIPO</a
+            >
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-bg-pattern"></div>
+          <div class="hero-right-inner">
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-num">50+</div>
+                <div class="stat-label">Estudos clínicos em andamento</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">130+</div>
+                <div class="stat-label">
+                  Estudos conduzidos ao longo dos anos
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">#1</div>
+                <div class="stat-label">
+                  Centro com maior recrutamento em múltiplas indicações no
+                  Brasil
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-bar fade-in">
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label">Contato</div>
+            <div class="info-value">(51) 3357 2092</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Horário de Funcionamento</div>
+            <div class="info-value">Seg – Sex: 8h30 às 17h30</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Endereço</div>
+            <div class="info-value">
+              Av. Francisco Trein, 596 — Porto Alegre/RS
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="fade-in">
+        <span class="section-tag">Nossa missão</span>
+        <h2 class="section-title">
+          Conduzir pesquisa com <br />segurança e inovação
+        </h2>
+        <p class="section-body">
+          O CIPO está alocado no Hospital Nossa Senhora da Conceição, parte do
+          Grupo Hospitalar Conceição — a maior rede pública de hospitais do Sul
+          do Brasil, com atendimento exclusivo ao SUS.
+        </p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🫀</div>
+            <div class="pillar-name">Estudos Clínicos</div>
+            <div class="pillar-desc">
+              Condução com foco total na segurança e bem-estar do paciente.
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💊</div>
+            <div class="pillar-name">Novos Tratamentos</div>
+            <div class="pillar-desc">
+              Acesso a terapias inovadoras em oncologia antes disponíveis ao
+              mercado.
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📊</div>
+            <div class="pillar-name">Qualidade de Dados</div>
+            <div class="pillar-desc">
+              Produção de dados clínicos de alta qualidade para pesquisa
+              científica.
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔬</div>
+            <div class="pillar-name">Inovação em Saúde</div>
+            <div class="pillar-desc">
+              Contribuição ao Sistema Único de Saúde com excelência e rigor
+              científico.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="fade-in" style="text-align: center">
+        <span class="section-tag">Depoimento</span>
+        <div
+          class="testimony"
+          style="text-align: left; max-width: 800px; margin: 0 auto"
+        >
+          <p class="testimony-text">
+            Estou me sentindo muito bem com o tratamento. Hoje, eu sou outra
+            pessoa, uma melhor que não acreditava que fosse. Tão importante.
+            Estou muito feliz, muito obrigado.
+          </p>
+          <p class="testimony-author">— Paciente em tratamento no CIPO</p>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('sobre')">Sobre</a>
+          <a href="#" onclick="showPage('estudos')">Estudos</a>
+          <a href="#" onclick="showPage('contato')">Contato</a>
+          <a href="#">Cookies</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <!-- ══ SOBRE ══ -->
+    <div class="page" id="page-sobre">
+      <section>
+        <span class="section-tag">Sobre o CIPO</span>
+        <h1 class="section-title">
+          Centro Integrado de<br />Pesquisa em Oncologia
+        </h1>
+        <div class="about-grid fade-in">
+          <div class="about-text">
+            <p>
+              O CIPO foi planejado para condução de pesquisas nacionais e
+              internacionais na área de Oncologia. Atualmente, são conduzidos
+              mais de 50 Estudos Clínicos que têm como objetivo testar e
+              identificar, em pacientes voluntários, a eficácia e segurança de
+              novas formas de diagnóstico e tratamento do câncer.
+            </p>
+            <p>
+              Para isso, o CIPO conta com uma equipe multidisciplinar altamente
+              capacitada e com experiência em mais de 130 Estudos Clínicos
+              conduzidos.
+            </p>
+            <p>
+              O CIPO está alocado no Hospital Nossa Senhora da Conceição que
+              pertence ao Grupo Hospitalar Conceição (GHC) — a maior rede
+              pública de hospitais do Sul do país, com atendimento exclusivo ao
+              SUS, ofertando 1.535 leitos e responsável pela internação de 59,8
+              mil pessoas/ano.
+            </p>
+            <p>
+              O GHC realiza 27.000 consultas/ano referentes a câncer, com
+              atendimento concentrado na área de quimioterapia (40.000
+              realizadas por ano). Atualmente, um em cada quatro pacientes que
+              ingressam na emergência do GHC tem diagnóstico de câncer.
+            </p>
+          </div>
+          <div class="about-images">
+            <div class="about-img-placeholder">🏥</div>
+            <div class="about-img-placeholder">🏢</div>
+            <div class="about-img-placeholder">🌿</div>
+            <div class="about-img-placeholder">🔬</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="team-section">
+        <span class="section-tag">Nossa equipe</span>
+        <h2 class="section-title">Equipe Multidisciplinar</h2>
+        <p class="section-body">
+          Altamente capacitada e com experiência em mais de 130 Estudos Clínicos
+          conduzidos.
+        </p>
+
+        <div class="team-category fade-in">
+          <div class="team-cat-title">Diretores</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">JM</div>
+              <div>
+                <div class="team-name">Dra. Juliana Janoski de Menezes</div>
+                <div class="team-role">Oncologista e Investigadora</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">GV</div>
+              <div>
+                <div class="team-name">Dr. Gustavo Vasconcelos Alves</div>
+                <div class="team-role">Oncologista e Investigador</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">OD</div>
+              <div>
+                <div class="team-name">Dr. Otávio da Costa Diaz</div>
+                <div class="team-role">Radioterapeuta e Investigador</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-category fade-in">
+          <div class="team-cat-title">Investigadores</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">CF</div>
+              <div>
+                <div class="team-name">Dr. Carlos Fausto Nini Gorini</div>
+                <div class="team-role">Oncologista e Investigador</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">AM</div>
+              <div>
+                <div class="team-name">Dra. Andrea Moretto</div>
+                <div class="team-role">Oncologista e Investigadora</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">LA</div>
+              <div>
+                <div class="team-name">Dr. Leonardo Oliveira de Almeida</div>
+                <div class="team-role">Oncologista e Investigador</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">MP</div>
+              <div>
+                <div class="team-name">Maicon Pereira Moraes</div>
+                <div class="team-role">Biomédico e Coordenador de Estudos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-category fade-in">
+          <div class="team-cat-title">Assistentes de Pesquisa</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">IR</div>
+              <div>
+                <div class="team-name">Ingrid Schenkei Reinhardt</div>
+                <div class="team-role">
+                  Acad. Farmácia e Assistente de Pesquisa
+                </div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">MS</div>
+              <div>
+                <div class="team-name">Mirela de Senna dos Santos</div>
+                <div class="team-role">
+                  Téc. Enfermagem e Assistente de Pesquisa
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-category fade-in">
+          <div class="team-cat-title">Farmacêuticas</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">VG</div>
+              <div>
+                <div class="team-name">Vanessa de Souza Guimarães</div>
+                <div class="team-role">Farmacêutica</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">MD</div>
+              <div>
+                <div class="team-name">Mariana D'Ávila da Cunha</div>
+                <div class="team-role">Farmacêutica</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-category fade-in">
+          <div class="team-cat-title">Enfermeiros</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">ÁL</div>
+              <div>
+                <div class="team-name">Álvaro Lemes Paz</div>
+                <div class="team-role">Enfermeiro</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">CO</div>
+              <div>
+                <div class="team-name">Carina de Oliveira</div>
+                <div class="team-role">Enfermeira Mestre</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimony fade-in">
+          <p class="testimony-text">
+            Estou me sentindo muito bem com o tratamento. Hoje, eu sou outra
+            pessoa, uma melhor que não acreditava que fosse. Tão importante.
+            Estou muito feliz, muito obrigado.
+          </p>
+          <p class="testimony-author">— Paciente em tratamento no CIPO</p>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('estudos')">Estudos</a>
+          <a href="#" onclick="showPage('contato')">Contato</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <!-- ══ ESTUDOS ══ -->
+    <div class="page" id="page-estudos">
+      <section>
+        <div class="estudos-header">
+          <div>
+            <span class="section-tag">Estudos Abertos</span>
+            <h1 class="section-title">Estudos Clínicos<br />em Recrutamento</h1>
+          </div>
+          <div class="estudos-search">
+            <span>🔍</span>
+            <input
+              type="text"
+              placeholder="Buscar estudo ou tipo de câncer…"
+              id="search-input"
+              oninput="filterStudies()"
+            />
+          </div>
+        </div>
+
+        <div id="studies-container">
+          <div
+            class="cancer-type fade-in"
+            data-type="Câncer de Cabeça e Pescoço"
+          >
+            <div class="cancer-type-header">
+              <div class="cancer-type-dot"></div>
+              <h2 class="cancer-type-title">Câncer de Cabeça e Pescoço</h2>
+            </div>
+            <div class="study-cards">
+              <div class="study-card">
+                <div class="study-name">
+                  eVOLVE-HNSCC Cabeça e Pescoço – Pós cCRT – SLOT REQUEST
+                  <span class="study-badge">Solicitar vaga</span>
+                </div>
+                <ul class="study-criteria">
+                  <li>HNSCC Estágios III, IVA ou IVB LA não ressecado</li>
+                  <li>SCC de OP, OC, HP ou LX</li>
+                  <li>Doença controlada após cCRT definitiva</li>
+                  <li>ECOG 0-1</li>
+                  <li>Tratamento: Volrustomig X Observação</li>
+                </ul>
+                <a
+                  href="https://clinicaltrials.gov"
+                  class="study-link"
+                  target="_blank"
+                  >Acessar no Clinical Trials ↗</a
+                >
+              </div>
+              <div class="study-card">
+                <div class="study-name">
+                  LiGeR-HN-01 MCLA-158-CL03 – 1ª Linha CPS ≥ 1%
+                </div>
+                <ul class="study-criteria">
+                  <li>HNSCC metastático ou localmente recorrente</li>
+                  <li>CPS ≥ 1</li>
+                  <li>ECOG 0-1</li>
+                  <li>
+                    Tratamento: Petosemtamabe + Pembrolizumabe X Pembrolizumabe
+                  </li>
+                </ul>
+                <a
+                  href="https://clinicaltrials.gov"
+                  class="study-link"
+                  target="_blank"
+                  >Acessar no Clinical Trials ↗</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="cancer-type fade-in" data-type="Câncer de Pulmão">
+            <div class="cancer-type-header">
+              <div class="cancer-type-dot"></div>
+              <h2 class="cancer-type-title">Câncer de Pulmão</h2>
+            </div>
+            <div class="study-cards">
+              <div class="study-card">
+                <div class="study-name">MK2870-019 – Neoadj e Adj</div>
+                <ul class="study-criteria">
+                  <li>
+                    NSCLC escamoso e não escamoso, ressecável, Estágio
+                    II-IIIB(N2)
+                  </li>
+                  <li>ECOG 0-1</li>
+                  <li>EGFR não mutado</li>
+                  <li>Tratamento: Neoadj: Pembrolizumabe + QT</li>
+                </ul>
+                <a
+                  href="https://clinicaltrials.gov"
+                  class="study-link"
+                  target="_blank"
+                  >Acessar no Clinical Trials ↗</a
+                >
+              </div>
+              <div class="study-card">
+                <div class="study-name">
+                  V940-009 – NSCLC Neoadjuvante/Adjuvante
+                </div>
+                <ul class="study-criteria">
+                  <li>NSCLC Estágios II-IIIB (N2)</li>
+                  <li>Capaz de receber quimio + pembro</li>
+                  <li>Excluir mutação EGFR</li>
+                  <li>ECOG 0-1</li>
+                </ul>
+                <a
+                  href="https://clinicaltrials.gov"
+                  class="study-link"
+                  target="_blank"
+                  >Acessar no Clinical Trials ↗</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="cancer-type fade-in"
+            data-type="Câncer de Esôfago ou Gástrico"
+          >
+            <div class="cancer-type-header">
+              <div class="cancer-type-dot"></div>
+              <h2 class="cancer-type-title">Câncer de Esôfago ou Gástrico</h2>
+            </div>
+            <div class="study-cards">
+              <div class="study-card">
+                <div class="study-name">ARTEMIDE-Gastric01 – 1ª Linha</div>
+                <ul class="study-criteria">
+                  <li>
+                    Gástrico ou ds IGE localmente avançado ou mtx confirmado
+                    histologicamente
+                  </li>
+                  <li>HER2+ (IHC3+ ou 2+/ISH-positivo)</li>
+                  <li>CPS ≥ 1</li>
+                  <li>ECOG 0-1</li>
+                  <li>
+                    Tratamento: Rilve + T-DXd + 5-FU/Cape X Pembro +
+                    Trastuzumabe + 5-FU/Cape
+                  </li>
+                </ul>
+                <a
+                  href="https://clinicaltrials.gov"
+                  class="study-link"
+                  target="_blank"
+                  >Acessar no Clinical Trials ↗</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('contato')">Contato</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <!-- ══ RECRUTADOR ══ -->
+    <div class="page" id="page-recrutador">
+      <section>
+        <div class="recruta-hero fade-in">
+          <h2>Potencial Recrutador</h2>
+          <p>
+            O CIPO demonstra um grande potencial recrutador na condução dos
+            Estudos Clínicos. Abaixo seguem alguns estudos recentemente
+            conduzidos com destaque em recrutamento nacional e mundial.
+          </p>
+        </div>
+
+        <div class="recruta-grid fade-in">
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Cabeça e Pescoço <span class="recruta-rank">1º Brasil</span>
+            </div>
+            <div class="recruta-detail">
+              2º centro com maior recrutamento no mundo (participação na
+              publicação) e 1º centro com maior recrutamento no Brasil.
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Pulmão <span class="recruta-rank">1º Brasil</span>
+            </div>
+            <div class="recruta-detail">
+              1º, 5º e 7º centro com maior recrutamento no mundo (participação
+              na publicação) e 1º centro com maior recrutamento no Brasil.
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Primário Oculto <span class="recruta-rank">1º Mundo</span>
+            </div>
+            <div class="recruta-detail">
+              1º centro com maior recrutamento no mundo.
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Próstata <span class="recruta-rank">1º Mundo</span>
+            </div>
+            <div class="recruta-detail">
+              1º centro com maior recrutamento no mundo e 1º no Brasil em 02
+              Estudos Clínicos (participação na publicação).
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Gástrico <span class="recruta-rank">1º América Latina</span>
+            </div>
+            <div class="recruta-detail">
+              1º centro com maior recrutamento na América Latina.
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Bexiga <span class="recruta-rank">1º Brasil</span>
+            </div>
+            <div class="recruta-detail">
+              1º centro com maior recrutamento no Brasil.
+            </div>
+          </div>
+          <div class="recruta-card">
+            <div class="recruta-cancer">
+              Rim <span class="recruta-rank">Top Brasil</span>
+            </div>
+            <div class="recruta-detail">
+              1º e 2º centro com maior recrutamento no Brasil.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('contato')">Contato</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <!-- ══ NOVIDADES ══ -->
+    <div class="page" id="page-novidades">
+      <section>
+        <span class="section-tag">Novidades</span>
+        <h1 class="section-title">Últimas notícias<br />e publicações</h1>
+
+        <div class="news-grid fade-in">
+          <div class="news-card">
+            <div class="news-thumb">📰</div>
+            <div class="news-body">
+              <div class="news-date">06/01/2019</div>
+              <div class="news-title">
+                CIPO é destaque na Revista Viva Saúde
+              </div>
+              <div class="news-excerpt">
+                A nossa Investigadora Principal realizou comentários na
+                reportagem principal sobre Câncer de sítio primário desconhecido
+                da Revista Viva Saúde.
+              </div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-thumb">💙</div>
+            <div class="news-body">
+              <div class="news-date">06/01/2019</div>
+              <div class="news-title">Novembro Azul</div>
+              <div class="news-excerpt">
+                O Centro de Pesquisa apoia o Novembro Azul, e a prevenção ao
+                Câncer de Próstata. Atualmente, temos um Estudo Clínico de 1ª
+                linha em recrutamento.
+              </div>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-thumb">🏆</div>
+            <div class="news-body">
+              <div class="news-date">02/01/2019</div>
+              <div class="news-title">
+                CIPO é destaque no recrutamento em Estudo Clínico de Câncer de
+                Bexiga
+              </div>
+              <div class="news-excerpt">
+                O CIPO acabou sendo destaque na newsletter de um dos estudos
+                conduzidos em Câncer de Bexiga devido ao excelente recrutamento.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="instagram-section fade-in">
+        <span class="section-tag">Instagram</span>
+        <h2 class="section-title" style="margin-bottom: 0">
+          Acompanhe nossas novidades
+        </h2>
+        <div class="insta-grid">
+          <div class="insta-cell">🏥</div>
+          <div class="insta-cell">🔬</div>
+          <div class="insta-cell">👩‍⚕️</div>
+          <div class="insta-cell">💊</div>
+          <div class="insta-cell">🌿</div>
+          <div class="insta-cell">📋</div>
+          <div class="insta-cell">🧬</div>
+          <div class="insta-cell">👨‍⚕️</div>
+          <div class="insta-cell">🩺</div>
+          <div class="insta-cell">⭐</div>
+        </div>
+        <p style="font-size: 13px; color: var(--ink-soft); margin-top: 16px">
+          Siga o CIPO no Instagram para acompanhar as novidades em tempo real.
+        </p>
+      </div>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('contato')">Contato</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <!-- ══ CONTATO ══ -->
+    <div class="page" id="page-contato">
+      <section>
+        <div class="contact-grid">
+          <div class="fade-in">
+            <div class="contact-info-title">Fale com o CIPO</div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div>
+                <div class="contact-detail-label">Endereço</div>
+                <div class="contact-detail-value">
+                  Av. Francisco Trein, 596 – Sala 3140 – Bloco E<br />Cristo
+                  Redentor – Porto Alegre/RS – 91350-200
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <div>
+                <div class="contact-detail-label">Telefone</div>
+                <div class="contact-detail-value">(51) 3516-0954</div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">💬</div>
+              <div>
+                <div class="contact-detail-label">WhatsApp</div>
+                <div class="contact-detail-value">(51) 3357 2092</div>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🕐</div>
+              <div>
+                <div class="contact-detail-label">Horário de Atendimento</div>
+                <div class="contact-detail-value">
+                  Segunda a Sexta, 8h30 às 17h30
+                </div>
+              </div>
+            </div>
+
+            <div class="map-placeholder">
+              <div class="map-icon">🗺</div>
+              <span>Av. Francisco Trein, 596 — Porto Alegre/RS</span>
+              <a
+                href="https://maps.google.com/?q=Av+Francisco+Trein+596+Porto+Alegre"
+                target="_blank"
+                style="color: var(--teal); font-size: 13px"
+                >Ver no Google Maps ↗</a
+              >
+            </div>
+          </div>
+
+          <div class="fade-in">
+            <div class="contact-form-title">Entre em contato conosco</div>
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" placeholder="Seu nome completo" />
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" placeholder="seu@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Mensagem</label>
+              <textarea
+                rows="5"
+                placeholder="Escreva sua mensagem aqui…"
+              ></textarea>
+            </div>
+            <button
+              class="btn-primary"
+              style="width: 100%; justify-content: center"
+              onclick="handleSubmit()"
+            >
+              Enviar mensagem →
+            </button>
+            <p
+              style="font-size: 13px; color: var(--ink-soft); margin-top: 14px"
+            >
+              Iremos retornar sua mensagem o mais rápido possível.
+            </p>
+            <div
+              id="form-success"
+              style="
+                display: none;
+                margin-top: 16px;
+                background: var(--teal-pale);
+                border: 1px solid var(--teal);
+                border-radius: 8px;
+                padding: 14px 18px;
+                color: var(--teal-dark);
+                font-size: 14px;
+              "
+            >
+              ✓ Mensagem enviada com sucesso! Retornaremos em breve.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="footer-logo">CIPO</div>
+          <p class="footer-tagline">
+            Centro Integrado de Pesquisa em Oncologia
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('home')">Início</a>
+          <a href="#" onclick="showPage('estudos')">Estudos</a>
+          <a href="#">Cookies</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 CIPO | Centro Integrado de Pesquisa em Oncologia
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function showPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".nav-links a")
+          .forEach((a) => a.classList.remove("active"));
+        document.getElementById("page-" + id).classList.add("active");
+        const navLink = document.getElementById("nav-" + id);
+        if (navLink) navLink.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(observeFades, 100);
+        return false;
+      }
+
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 10);
+        observeFades();
+      });
+
+      function observeFades() {
+        document.querySelectorAll(".fade-in:not(.visible)").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) el.classList.add("visible");
+        });
+      }
+
+      function filterStudies() {
+        const q = document.getElementById("search-input").value.toLowerCase();
+        document.querySelectorAll(".cancer-type").forEach((block) => {
+          const text = block.textContent.toLowerCase();
+          block.style.display = text.includes(q) ? "" : "none";
+        });
+      }
+
+      function handleSubmit() {
+        document.getElementById("form-success").style.display = "block";
+      }
+
+      setTimeout(observeFades, 200);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+/* ── POTENCIAL RECRUTADOR ── */
+.recruta-hero {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+  border-radius: 20px; padding: 56px 60px;
+  color: var(--white); margin-bottom: 48px;
+}
+.recruta-hero h2 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
+.recruta-hero p  { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 560px; }
+
+.recruta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.recruta-card {
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.recruta-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+.recruta-cancer {
+  font-weight: 500; color: var(--teal-dark); font-size: 16px;
+  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.recruta-rank {
+  background: var(--teal); color: var(--white);
+  font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 100px;
+}
+.recruta-detail { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .recruta-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .recruta-grid { grid-template-columns: 1fr; }
+  .recruta-hero { padding: 40px 30px; }
+}

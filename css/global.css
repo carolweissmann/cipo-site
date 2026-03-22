@@ -1,0 +1,189 @@
+/* ============================================================
+   CIPO — Estilos Globais
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  height: 80px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s, height 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(13,140,120,0.08); height: 72px; }
+
+.logo {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+}
+.logo-img {
+  height: clamp(90px, 6vh, 60px);
+  width: auto;
+  transition: height 0.3s;
+  display: block;
+}
+.logo-text {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+  color: var(--ink-mid);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 2px;
+  list-style: none;
+  white-space: nowrap;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px; font-weight: 400;
+  color: var(--ink-mid);
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+}
+/* botão de contato no menu */
+.nav-cta {
+  background: var(--teal) !important;
+  color: var(--white) !important;
+  padding: 8px 18px !important;
+}
+.nav-cta:hover { background: var(--teal-dark) !important; }
+
+/* ── PÁGINAS ── */
+.page { display: none; min-height: 100vh; padding-top: 68px; }
+.page.active { display: block; }
+
+/* ── BOTÕES ── */
+.btn-primary {
+  background: var(--teal); color: var(--white);
+  border: none; border-radius: 8px;
+  padding: 14px 28px; font-size: 15px; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: transparent; color: var(--teal);
+  border: 1.5px solid var(--teal); border-radius: 8px;
+  padding: 14px 28px; font-size: 15px; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-secondary:hover { background: var(--teal-pale); transform: translateY(-1px); }
+
+/* ── SEÇÕES COMPARTILHADAS ── */
+section { padding: 80px 8vw; }
+
+.section-tag {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 16px; display: block;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300; color: var(--ink);
+  line-height: 1.2; margin-bottom: 16px;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+.section-body {
+  font-size: 17px; color: var(--ink-mid); line-height: 1.75;
+  max-width: 640px; margin-bottom: 40px;
+}
+.divider {
+  height: 1px; background: var(--border);
+  margin: 0 8vw;
+}
+
+/* ── DEPOIMENTO ── */
+.testimony {
+  background: var(--teal); border-radius: 20px;
+  padding: 48px 56px; margin-top: 48px;
+  position: relative; overflow: hidden;
+}
+.testimony::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 14rem; color: rgba(255,255,255,0.08);
+  position: absolute; top: -40px; left: 32px;
+  line-height: 1; pointer-events: none;
+}
+.testimony-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem; font-weight: 300; font-style: italic;
+  color: var(--white); line-height: 1.6;
+  max-width: 600px; position: relative; z-index: 1;
+}
+.testimony-author {
+  margin-top: 24px; font-size: 14px;
+  color: rgba(255,255,255,0.7); position: relative; z-index: 1;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); color: rgba(255,255,255,0.55);
+  padding: 48px 8vw 32px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items: end;
+}
+.footer-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 300; color: var(--white); margin-bottom: 8px; }
+.footer-tagline { font-size: 13px; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; font-size: 12px; }
+
+/* ── ANIMAÇÕES ── */
+.fade-in {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-in.visible { opacity: 1; transform: none; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MEDIA QUERIES GLOBAIS ── */
+@media (max-width: 900px) {
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 6px 10px; font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 4vw; }
+  .logo-img { height: 36px; }
+  .nav-links { display: none; }
+  
+  section { padding: 60px 6vw; }
+}

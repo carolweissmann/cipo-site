@@ -1,0 +1,17 @@
+:root {
+  /* --- PALETA DE CORES --- */
+  --teal:       #0D8C78;   /* cor principal (verde-azulado) */
+  --teal-light: #1AAD94;   /* versão mais clara */
+  --teal-pale:  #E6F5F2;   /* fundo suave */
+  --teal-dark:  #075C4F;   /* versão escura (hover) */
+
+  --ink:        #0F1F1D;   /* texto principal */
+  --ink-mid:    #3A5450;   /* texto secundário */
+  --ink-soft:   #7A9E99;   /* texto terciário / placeholder */
+
+  --cream:      #F7F9F8;   /* fundo de seções alternadas */
+  --white:      #FFFFFF;
+
+  --border:     rgba(13,140,120,0.12);  /* borda padrão */
+  --radius:     12px;                   /* arredondamento padrão */
+}

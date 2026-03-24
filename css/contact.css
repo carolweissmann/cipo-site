@@ -1,4 +1,6 @@
 /* ── CONTATO ── */
+.contact-section { padding-top: 140px; } /* Espaço para não grudar na navbar */
+
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .contact-info-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 300; color: var(--ink); margin-bottom: 32px; }
 .contact-detail { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
@@ -20,7 +22,7 @@
 }
 .map-placeholder .map-icon { font-size: 32px; }
 
-.contact-form-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 300; color: var(--ink); margin-bottom: 32px; }
+.contact-form-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 300; color: var(--ink); margin-bottom: 20px; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-mid); margin-bottom: 8px; }
 .form-group input,
@@ -35,5 +37,6 @@
 .form-group textarea:focus { border-color: var(--teal); background: var(--white); }
 
 @media (max-width: 900px) {
+  .contact-section { padding-top: 100px; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }

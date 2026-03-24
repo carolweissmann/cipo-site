@@ -15,7 +15,6 @@
 <nav id="navbar">
   <a href="../index.html" class="logo">
     <img src="../imagens/cipo logo.svg" alt="CIPO Logo" class="logo-img">
-  
   </a>
   <ul class="nav-links">
     <li><a href="../index.html">Início</a></li>
@@ -27,10 +26,10 @@
   </ul>
 </nav>
 
-<section>
+<section class="contact-section">
   <div class="contact-grid">
 
-    <!-- ══ INFORMAÇÕES DE CONTATO ══ -->
+    <!-- ══ INFORMAÇÕES DE CONTATO (Coluna Esquerda) ══ -->
     <div class="fade-in">
       <div class="contact-info-title">Fale com o CIPO</div>
 
@@ -53,13 +52,13 @@
         </div>
       </div>
 
-      <div class="contact-detail">
+      <a href="https://wa.me/555133572092" target="_blank" class="contact-detail" style="text-decoration: none; color: inherit;">
         <div class="contact-detail-icon">💬</div>
         <div>
           <div class="contact-detail-label">WhatsApp</div>
           <div class="contact-detail-value">(51) 3357 2092</div>
         </div>
-      </div>
+      </a>
 
       <div class="contact-detail">
         <div class="contact-detail-icon">🕐</div>
@@ -69,34 +68,23 @@
         </div>
       </div>
 
-      <!-- Para usar o Google Maps real, substitua a div abaixo por um <iframe> -->
-      <div class="map-placeholder">
-        <div class="map-icon">🗺</div>
-        <span>Av. Francisco Trein, 596 — Porto Alegre/RS</span>
-        <a
-          href="https://maps.google.com/?q=Av+Francisco+Trein+596+Porto+Alegre"
-          target="_blank"
-          style="color: var(--teal); font-size: 13px;"
-        >
-          Ver no Google Maps ↗
-        </a>
+      <!-- Google Maps -->
+      <div style="margin-top: 24px;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.699460428971!2d-51.161559523880904!3d-30.016784929995396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519777556261587%3A0x6e0060bb242c2a54!2sAv.%20Francisco%20Trein%2C%20596%20-%20Cristo%20Redentor%2C%20Porto%20Alegre%20-%20RS%2C%2091350-200!5e0!3m2!1spt-BR!2sbr!4v1774388437724!5m2!1spt-BR!2sbr" 
+          width="100%" 
+          height="250" 
+          style="border:0; border-radius: 12px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-
-      <!-- Exemplo de iframe do Google Maps (descomente e substitua o src):
-      <iframe
-        src="https://www.google.com/maps/embed?pb=SEU_EMBED_AQUI"
-        width="100%" height="220" style="border:0; border-radius:12px; margin-top:24px;"
-        allowfullscreen="" loading="lazy">
-      </iframe>
-      -->
     </div>
 
-    <!-- ══ FORMULÁRIO ══ -->
+    <!-- ══ FORMULÁRIO (Coluna Direita) ══ -->
     <div class="fade-in contact-form">
       <div class="contact-form-title">Entre em contato conosco</div>
-
-      <!-- Para enviar de verdade, use Formspree, EmailJS ou um backend próprio -->
-      <!-- Exemplo com Formspree: <form action="https://formspree.io/f/SEU_ID" method="POST"> -->
 
       <div class="form-group">
         <label for="nome">Nome</label>

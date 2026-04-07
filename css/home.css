@@ -8,7 +8,7 @@
 }
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 6vw 80px 8vw;
+  padding: 96px 6vw 80px 8vw;
   position: relative; z-index: 2;
 }
 .hero-tag {
@@ -113,10 +113,11 @@
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-right { height: 400px; }
+  .hero-right { height: 560px; }
+  .hero-stats { padding: 24px; }
 }
 
 @media (max-width: 600px) {
-  .hero-left { padding: 60px 6vw; }
+  .hero-left { padding: 76px 6vw 60px; }
   .info-bar { grid-template-columns: 1fr; gap: 24px; }
 }

@@ -73,6 +73,41 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(13,140,120,0.08); height: 72px; }
 }
 .nav-cta:hover { background: var(--teal-dark) !important; }
 
+/* Botão Mobile */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+.mobile-toggle span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--teal);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* Animação do X */
+.mobile-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mobile-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
+.mobile-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Overlay de fundo (opcional) */
+.nav-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.nav-overlay.active { opacity: 1; visibility: visible; }
+
 /* ── PÁGINAS ── */
 .page { display: none; min-height: 100vh; padding-top: 68px; }
 .page.active { display: block; }
@@ -173,7 +208,6 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 /* ── MEDIA QUERIES GLOBAIS ── */
 @media (max-width: 900px) {
   .nav-links { gap: 0; }
@@ -183,7 +217,46 @@ footer {
 @media (max-width: 600px) {
   nav { padding: 0 4vw; }
   .logo-img { height: 36px; }
-  .nav-links { display: none; }
-  
-  section { padding: 60px 6vw; }
+
+  .mobile-toggle { display: flex; }
+
+  .nav-links {
+    display: flex;
+    position: fixed;
+    top: 0; right: -100%;
+    width: 280px; height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 100px 32px;
+    gap: 12px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    white-space: normal;
+  }
+  .nav-links.active { right: 0; }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: transparent;
+    color: var(--teal);
+  }
+
+  .nav-links a.nav-cta {
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 8px;
+    background: var(--teal) !important;
+    color: white !important;
+  }
+section { padding: 60px 6vw; }
 }
+

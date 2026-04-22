@@ -51,12 +51,35 @@ function filterStudies() {
 }
 
 /* ── FORMULÁRIO DE CONTATO ── */
-function handleSubmit() {
-  // Aqui você pode conectar a um backend ou serviço como Formspree, EmailJS etc.
-  // Por enquanto exibe mensagem de sucesso visual
-  const btn = document.querySelector('.contact-form .btn-primary');
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById('nome').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const mensagem = document.getElementById('mensagem').value.trim();
   const success = document.getElementById('form-success');
-  if (success) success.style.display = 'block';
+  const form = document.getElementById('contact-form');
+
+  if (!nome || !email || !mensagem) {
+    alert('Por favor, preencha todos os campos antes de enviar.');
+    return;
+  }
+
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => {
+      if (!response.ok) throw new Error('Erro ao enviar.');
+      success.style.display = 'block';
+      success.textContent = '✓ Mensagem enviada com sucesso! Retornaremos em breve.';
+      form.reset();
+    })
+    .catch(() => {
+      alert('Ocorreu um erro ao enviar. Tente novamente em alguns instantes.');
+    });
 }
 
 /* ── MENU MOBILE ── */
@@ -91,4 +114,9 @@ function setupMobileMenu() {
 document.addEventListener('DOMContentLoaded', () => {
   setupMobileMenu();
   setTimeout(observeFades, 200);
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleSubmit);
+  }
 });

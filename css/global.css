@@ -212,13 +212,8 @@ footer {
 @media (max-width: 900px) {
   .nav-links { gap: 0; }
   .nav-links a { padding: 6px 10px; font-size: 13px; }
-}
-
-@media (max-width: 600px) {
   nav { padding: 0 4vw; }
-  .logo-img { height: 36px; }
-  .nav-overlay { background: transparent; }
-
+  .logo-img { height: 44px; }
   .mobile-toggle { display: flex; }
 
   .nav-links {
@@ -261,5 +256,15 @@ footer {
     background: var(--teal) !important;
     color: white !important;
   }
-section { padding: 60px 6vw; }
+  .nav-overlay { background: rgba(0,0,0,0.3); }
+
+  section { padding: 60px 6vw; }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 4vw; }
+  .logo-img { height: 36px; }
+  .nav-overlay { background: transparent; }
+
+  .nav-links a { font-size: 18px; }
 }

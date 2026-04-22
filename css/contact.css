@@ -37,6 +37,9 @@
 .form-group textarea:focus { border-color: var(--teal); background: var(--white); }
 
 @media (max-width: 900px) {
-  .contact-section { padding-top: 100px; }
+  .contact-section {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }

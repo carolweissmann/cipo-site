@@ -28,13 +28,15 @@ nav {
 }
 nav.scrolled { box-shadow: 0 2px 24px rgba(13,140,120,0.08); height: 72px; }
 
-.logo {
+..logo {
   display: flex; align-items: center; gap: 14px;
   text-decoration: none;
+  max-width: 240px;
 }
 .logo-img {
-  height: clamp(90px, 6vh, 60px);
+  height: clamp(48px, 6vw, 60px);
   width: auto;
+  max-width: 100%;
   transition: height 0.3s;
   display: block;
 }
@@ -213,7 +215,7 @@ footer {
   .nav-links { gap: 0; }
   .nav-links a { padding: 6px 10px; font-size: 13px; }
   nav { padding: 0 4vw; }
-  .logo-img { height: 44px; }
+  .logo-img { height: 40px; }
   .mobile-toggle { display: flex; }
 
   .nav-links {
@@ -263,7 +265,7 @@ footer {
 
 @media (max-width: 600px) {
   nav { padding: 0 4vw; }
-  .logo-img { height: 36px; }
+  .logo-img { height: 32px; }
   .nav-overlay { background: transparent; }
 
   .nav-links a { font-size: 18px; }

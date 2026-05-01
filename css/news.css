@@ -12,7 +12,14 @@
 }
 .news-body    { padding: 20px 22px; }
 .news-date    { font-size: 12px; color: var(--ink-soft); margin-bottom: 8px; }
-.news-title   { font-weight: 500; color: var(--ink); font-size: 15px; line-height: 1.4; margin-bottom: 10px; }
+.news-title   { 
+  font-weight: 500; 
+  color: var(--ink); 
+  font-size: 15px; 
+  line-height: 1.4; 
+  margin-bottom: 20px; 
+}
+
 .news-excerpt { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
 
 .instagram-section { background: var(--cream); padding: 60px 8vw; }

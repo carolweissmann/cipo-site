@@ -1,8 +1,11 @@
 /* ── POTENCIAL RECRUTADOR ── */
 .recruta-hero {
   background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
-  border-radius: 20px; padding: 56px 60px;
-  color: var(--white); margin-bottom: 48px;
+  border-radius: 10px; 
+  padding: 56px 60px;
+  color: var(--white); 
+  margin-bottom: 20px;
+  margin-top: 7px;
 }
 .recruta-hero h2 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
 .recruta-hero p  { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 560px; }

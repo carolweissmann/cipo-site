@@ -118,6 +118,7 @@
 .news-excerpt { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
 
 .instagram-section { background: var(--cream); padding: 60px 8vw; }
+
 .insta-grid {
   display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 8px; margin-top: 32px;

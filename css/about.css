@@ -95,6 +95,189 @@
 
 .team-role  { font-size: 13px; color: var(--ink-soft); line-height: 1.3; }
 
+.ranking-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(420px, 1.18fr);
+  gap: 44px;
+  align-items: start;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.ranking-section .section-tag {
+  color: var(--teal);
+}
+
+.ranking-section .section-title {
+  color: var(--ink);
+  max-width: 480px;
+}
+
+.ranking-intro p {
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.ranking-intro small {
+  display: block;
+  color: var(--ink-soft);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.ranking-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  box-shadow: 0 4px 24px rgba(13,140,120,0.05);
+}
+
+.ranking-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: var(--white);
+  color: var(--ink-mid);
+}
+
+.ranking-table th {
+  padding: 14px 18px;
+  text-align: left;
+  background: var(--cream);
+  color: var(--ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ranking-table td {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.ranking-table td:last-child,
+.ranking-table th:last-child {
+  text-align: right;
+}
+
+.ranking-table strong {
+  color: var(--ink);
+}
+
+.ranking-table small {
+  display: block;
+  color: var(--ink-soft);
+  margin-top: 3px;
+}
+
+.ranking-highlight {
+  background: var(--teal-pale);
+}
+
+.ranking-highlight td:first-child span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.ecosystem-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(420px, 1.15fr);
+  gap: 64px;
+  align-items: start;
+  background: var(--white);
+}
+
+.ecosystem-copy .section-title {
+  max-width: 420px;
+}
+
+.ecosystem-copy p {
+  color: var(--ink-mid);
+  line-height: 1.8;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+.ecosystem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ecosystem-list li {
+  color: var(--ink-mid);
+  font-size: 14px;
+}
+
+.ecosystem-list li::before {
+  content: "✓";
+  color: var(--teal);
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.ecosystem-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ecosystem-stat {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 22px;
+}
+
+.ecosystem-stat strong {
+  display: block;
+  color: var(--teal-dark);
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ecosystem-stat span {
+  display: block;
+  color: var(--ink-mid);
+  font-size: 13px;
+}
+
+.ecosystem-stats p {
+  grid-column: 1 / -1;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
 @media (max-width: 600px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ecosystem-stats { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .ranking-section {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .ecosystem-section {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .ecosystem-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

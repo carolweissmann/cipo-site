@@ -1,3 +1,29 @@
+/* ── BLOCO FINAL DE CHAMADA PARA AÇÃO ── */
+.recruta-cta-block {
+  margin: 24px 8vw 48px;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 30px rgba(13, 140, 120, 0.08);
+}
+
+.recruta-cta-block .section-title {
+  margin-bottom: 12px;
+}
+
+.recruta-cta-block .section-body {
+  max-width: 720px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 700px) {
+  .recruta-cta-block {
+    padding: 28px 20px;
+    margin: 24px 20px 40px;
+  }
+}
+
 /* ── POTENCIAL RECRUTADOR ── */
 .recruta-hero {
   background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
@@ -27,10 +53,85 @@
 }
 .recruta-detail { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
 
+.partners-section {
+  background: var(--white);
+}
+
+.partners-block {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.partners-heading {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.partners-count {
+  font-family: 'Fraunces', serif;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--teal);
+}
+
+.partners-heading h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.partners-heading p {
+  color: var(--ink-mid);
+  font-size: 15px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.partner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  color: var(--ink);
+  font-size: 15px;
+  box-shadow: 0 4px 18px rgba(13,140,120,0.04);
+}
+
+.partner-card::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.partner-card span {
+  display: block;
+  margin-top: 6px;
+  padding-left: 17px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 @media (max-width: 900px) {
   .recruta-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .recruta-grid { grid-template-columns: 1fr; }
   .recruta-hero { padding: 40px 30px; }
+  .partners-heading { grid-template-columns: 1fr; gap: 8px; }
 }

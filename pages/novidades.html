@@ -26,53 +26,129 @@
 </nav>
 
 <section>
+
   <span class="section-tag">Novidades</span>
   <h1 class="section-title">Últimas notícias<br>e publicações</h1>
 
-  <!-- ══ CARDS DE NOTÍCIAS ══
-       Para adicionar uma nova notícia: copie um .news-card e edite o conteúdo -->
-  <div class="news-grid fade-in">
 
-    <div class="news-card">
-      <!-- Substitua a div abaixo por <img src="..." alt="..."> quando tiver a imagem -->
-      <div class="news-thumb">📰</div>
-      <div class="news-body">
-        <div class="news-date">06/01/2019</div>
-        <div class="news-title">CIPO é destaque na Revista Viva Saúde</div>
-        <div class="news-excerpt">
-          A nossa Investigadora Principal realizou comentários na reportagem principal
-          sobre Câncer de sítio primário desconhecido da Revista Viva Saúde.
-        </div>
+  <div class="news-cards-grid fade-in">
+    <!-- CARD 1 -->
+    <div class="news-float-card">
+      <span class="news-badge">Publicação</span>
+      <div class="news-meta">
+        <span class="news-date">23 de maio de 2026</span> 
+        <span class="news-author">Equipe CIPO</span>
+      </div>
+      <div class="news-float-title">O que é um estudo clínico e por que ele importa para você</div>
+      <div class="news-float-excerpt">Um guia simples e direto para entender como funcionam os ensaios clínicos, quem pode participar e como eles transformam o tratamento do câncer.</div>
+      <a href="#" class="news-float-link" onclick="toggleNews('news1'); return false;">Ler completo &rarr;</a>
+      <div id="news1" class="news-float-full" style="display:none;">
+        <strong>O que é um estudo clínico</strong><br>
+        Um estudo clínico é uma pesquisa, conduzida com pessoas voluntárias, que avalia se um novo tratamento, exame ou estratégia médica é seguro e eficaz. Antes de chegar à farmácia ou ao consultório, todo medicamento moderno passou por anos — às vezes décadas — de estudos clínicos.<br><br>
+        <strong>As fases de um estudo</strong><br>
+        <ul>
+          <li><b>Fase I:</b> Primeira aplicação em humanos. Avalia segurança e dose máxima tolerada em pequenos grupos.</li>
+          <li><b>Fase II:</b> Avalia eficácia preliminar e segurança em grupos maiores, geralmente com a doença de interesse.</li>
+          <li><b>Fase III:</b> Confirma eficácia e monitora efeitos adversos em grandes populações, comparando com o tratamento padrão.</li>
+          <li><b>Fase IV:</b> Após aprovação, monitora o uso na vida real.</li>
+        </ul>
+        <strong>Por que participar</strong><br>
+        Para pacientes com câncer, participar de um estudo pode significar acesso antecipado a terapias inovadoras que ainda não estão disponíveis no mercado, com acompanhamento clínico próximo e sem custos. Também é uma forma de contribuir para que outros pacientes, no futuro, tenham mais opções de tratamento.<br><br>
+        <strong>É seguro?</strong><br>
+        Sim — desde que conduzido em um centro qualificado, com aprovação de comitês de ética independentes (CEP/CONEP) e seguindo normas internacionais de Boas Práticas Clínicas (ICH-GCP). Você assina um termo de consentimento livre e esclarecido e pode interromper sua participação a qualquer momento.<br><br>
+        <strong>Como saber se sou elegível</strong><br>
+        Cada estudo tem critérios específicos. O caminho mais simples é conversar com seu médico assistente e entrar em contato com a equipe da CIPO — fazemos uma avaliação inicial gratuita e sem compromisso.
       </div>
     </div>
 
-    <div class="news-card">
-      <div class="news-thumb">💙</div>
-      <div class="news-body">
-        <div class="news-date">06/01/2019</div>
-        <div class="news-title">Novembro Azul</div>
-        <div class="news-excerpt">
-          O Centro de Pesquisa apoia o Novembro Azul, e a prevenção ao Câncer de Próstata.
-          Atualmente, temos um Estudo Clínico de 1ª linha em recrutamento. Entre em contato…
-        </div>
+    <!-- CARD 2 -->
+    <div class="news-float-card">
+      <span class="news-badge news-badge-green">Reconhecimento</span>
+      <div class="news-meta">
+        <span class="news-date">31 de dezembro de 2025</span>
+        <span class="news-author">Equipe CIPO</span>
+      </div>
+      <div class="news-float-title">Retrospectiva 2025: 200 estudos conduzidos e mais de 650 pacientes</div>
+      <div class="news-float-excerpt">Um ano para celebrar: chegamos à marca histórica de 200 estudos clínicos conduzidos, com 86 estudos em andamento, 30 em recrutamento e mais de 650 pacientes que já participaram de pesquisas no CIPO.</div>
+      <a href="#" class="news-float-link" onclick="toggleNews('news2'); return false;">Ler completo &rarr;</a>
+      <div id="news2" class="news-float-full" style="display:none;">
+        2025 foi um ano de marcos importantes para o CIPO. Encerramos o ano com números que nos enchem de orgulho e responsabilidade.<br><br>
+        <strong>Os números do ano</strong><br>
+        <ul>
+          <li><b>200</b> estudos clínicos conduzidos ao longo da nossa história</li>
+          <li><b>86</b> estudos em condução atualmente</li>
+          <li><b>30</b> estudos em recrutamento ativo</li>
+          <li><b>96</b> novos pacientes incluídos em estudos clínicos só em 2025</li>
+          <li><b>+650</b> pacientes que já participaram de pesquisas no CIPO</li>
+        </ul>
+        <strong>Reconhecimentos do ano</strong><br>
+        Em 2025 fomos reconhecidos em alguns dos cenários mais importantes da pesquisa clínica internacional:<br>
+        <ul>
+          <li><b>New England Journal of Medicine</b> — publicação do estudo KEYNOTE-689 com participação do CIPO</li>
+          <li><b>ASCO 2025 + The Lancet Oncology</b> — KEYNOTE-412 (fomos o 2º centro do mundo a incluir pacientes!)</li>
+          <li><b>Partners in Care</b> — reconhecimento pela parceria com a AstraZeneca</li>
+          <li><b>Centro Global Program</b> — seleção pela IQVIA Partnership</li>
+        </ul>
+        <strong>O que vem por aí</strong><br>
+        2026 começa com a confiança de que pesquisa clínica de excelência se constrói com método, propósito e parceria — e gratidão profunda a nossa equipe, aos pacientes voluntários, aos patrocinadores e a toda a rede do GHC.
       </div>
     </div>
 
-    <div class="news-card">
-      <div class="news-thumb">🏆</div>
-      <div class="news-body">
-        <div class="news-date">02/01/2019</div>
-        <div class="news-title">CIPO é destaque no recrutamento em Estudo Clínico de Câncer de Bexiga</div>
-        <div class="news-excerpt">
-          O CIPO acabou sendo destaque na newsletter de um dos estudos conduzidos em
-          Câncer de Bexiga devido ao excelente recrutamento.
-        </div>
+    <!-- CARD 3 -->
+    <div class="news-float-card">
+      <span class="news-badge">Publicação</span>
+      <div class="news-meta">
+        <span class="news-date">23 de junho de 2025</span>
+        <span class="news-author">Equipe CIPO</span>
+      </div>
+      <div class="news-float-title">CIPO na publicação do New England Journal of Medicine — KEYNOTE-689</div>
+      <div class="news-float-excerpt">Estudo internacional de pembrolizumabe em carcinoma escamoso de cabeça e pescoço localmente avançado, publicado na NEJM, conta com a participação ativa do CIPO no recrutamento e análise.</div>
+      <a href="#" class="news-float-link" onclick="toggleNews('news3'); return false;">Ler completo &rarr;</a>
+      <div id="news3" class="news-float-full" style="display:none;">
+        O CIPO está presente no número atual do <b>The New England Journal of Medicine</b> com o artigo original do estudo KEYNOTE-689 (MK689).<br><br>
+        <strong>Sobre o estudo</strong><br>
+        A adição de pembrolizumabe ao tratamento padrão (cirurgia + rádio/quimioterapia) no carcinoma escamoso de cabeça e pescoço localmente avançado mostrou ganhos clínicos relevantes:<br>
+        <ul>
+          <li><b>Mediana de DMFS</b> (disease-free metastasis-free survival): 51,8 meses com pembrolizumabe vs 35,7 meses no padrão (HR 0,71)</li>
+          <li><b>Menor incidência de novos tumores:</b> 2,5% vs 5,1%</li>
+          <li><b>Controle locorregional semelhante</b> entre os grupos</li>
+          <li><b>Perfil de segurança aceitável</b></li>
+        </ul>
+        Esses dados reforçam o papel da imunoterapia no cenário perioperatório de tumores ressecáveis.<br><br>
+        <strong>Participação do CIPO</strong><br>
+        O CIPO participou da pesquisa com alto recrutamento de pacientes brasileiros e tem orgulho de oferecer acesso a esses avanços terapêuticos aos pacientes da nossa região, em parceria com o Hospital Nossa Senhora da Conceição (GHC).
       </div>
     </div>
 
-    <!-- Adicione mais .news-card aqui -->
-
+    <!-- CARD 4 -->
+    <div class="news-float-card">
+      <span class="news-badge">Publicação</span>
+      <div class="news-meta">
+        <span class="news-date">06 de junho de 2025</span>
+        <span class="news-author">Equipe CIPO</span>
+      </div>
+      <div class="news-float-title">ASCO 2025: CIPO é o 2º centro do mundo no KEYNOTE-412 — publicado no Lancet Oncology</div>
+      <div class="news-float-excerpt">Resultados de longo prazo do KEYNOTE-412 com pembrolizumabe + quimiorradioterapia em câncer de cabeça e pescoço localmente avançado foram apresentados no ASCO 2025 e publicados no The Lancet Oncology, com a CIPO entre os autores.</div>
+      <a href="#" class="news-float-link" onclick="toggleNews('news4'); return false;">Ler completo &rarr;</a>
+      <div id="news4" class="news-float-full" style="display:none;">
+        Foram apresentados no <b>ASCO 2025 Annual Meeting</b> os resultados de longo prazo do estudo KEYNOTE-412, e o CIPO participou da publicação correspondente no <b>The Lancet Oncology</b>.<br><br>
+        <strong>Sobre o estudo</strong><br>
+        O KEYNOTE-412 avalia pembrolizumabe em combinação com quimiorradioterapia concomitante (CRT) versus placebo + CRT em pacientes com carcinoma escamoso de cabeça e pescoço localmente avançado, não-ressecado (LA HNSCC).<br>
+        Com mais de 2 anos de acompanhamento adicional, os resultados mostraram:<br>
+        <ul>
+          <li><b>Benefício clinicamente relevante em EFS</b> (sobrevida livre de eventos) com pembrolizumabe + CRT</li>
+          <li><b>Sem novos sinais de segurança</b> em pacientes com HNSCC localmente avançado</li>
+          <li>Resultados reforçam o papel da imunoterapia adicionada à quimiorradioterapia neste cenário</li>
+        </ul>
+        <strong>A posição do CIPO no estudo</strong><br>
+        O CIPO participou da publicação no The Lancet Oncology devido ao significativo recrutamento de pacientes, sendo o <b>segundo centro do mundo</b> a incluir pacientes neste estudo internacional.<br>
+        <i>Estar entre essas instituições, e como segundo maior recrutador mundial, é resultado do trabalho contínuo da equipe e da estrutura única que temos no GHC.</i>
+      </div>
+    </div>
   </div>
+
+  <!-- Removido bloco antigo de news-grid -->
+
 </section>
 
 <!-- ══ INSTAGRAM ══ -->

@@ -94,24 +94,52 @@
 
       <form id="contact-form" action="https://formsubmit.co/contato@cipors.com" method="POST">
         <input type="hidden" name="_subject" value="Novo contato pelo site CIPO" />
+        <input type="hidden" name="_template" value="Mensagem recebida" />
+
         <input type="hidden" name="_captcha" value="false" />
 
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" id="nome" name="name" placeholder="Seu nome completo">
+          <input type="text" id="nome" name="name" placeholder="Seu nome completo" required>
         </div>
 
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com">
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+        </div>
+
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input
+            type="tel"
+            id="telefone"
+            name="phone"
+            inputmode="tel"
+            placeholder="(xx) xxxxx-xxxx"
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="subject" required>
+            <option value="" selected disabled>Selecione um assunto</option>
+            <option value="Proposta de estudo (Sponsor / CRO)">Proposta de estudo (Sponsor / CRO)</option>
+            <option value="Participação em estudo (paciente)">Participação em estudo (paciente)</option>
+            <option value="Carreiras / vagas">Carreiras / vagas</option>
+            <option value="Imprensa">Imprensa</option>
+            <option value="Outros">Outros</option>
+          </select>
         </div>
 
         <div class="form-group">
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="message" rows="5" placeholder="Escreva sua mensagem aqui…"></textarea>
+          <textarea id="mensagem" name="message" rows="5" placeholder="Escreva sua mensagem aqui…" required></textarea>
         </div>
 
         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+
           Enviar mensagem →
         </button>
       </form>
@@ -133,6 +161,92 @@
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- ══ SERVIÇOS ══ -->
+<section class="services-section fade-in">
+  <span class="section-tag">Serviços</span>
+  <h2 class="section-title">Operação completa para<br>pesquisa clínica</h2>
+  <p class="section-body">
+    Atuamos como um site de pesquisa pronto para receber protocolos complexos,
+    com equipe própria, infraestrutura hospitalar integrada e processos
+    auditáveis de ponta a ponta.
+  </p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <span>01</span>
+      <div>
+        <h3>Condução de estudos clínicos</h3>
+        <p>Ensaios de Fases I a IV em oncologia, incluindo estudos multicêntricos nacionais e internacionais.</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <span>02</span>
+      <div>
+        <h3>Equipe multidisciplinar especializada</h3>
+        <p>Médicos, enfermeiros, farmacêuticos, biomédicos e coordenadores treinados em Boas Práticas Clínicas.</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <span>03</span>
+      <div>
+        <h3>Infraestrutura hospitalar integrada</h3>
+        <p>Acesso direto à estrutura do Hospital Nossa Senhora da Conceição, incluindo exames, laboratório e suporte assistencial.</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <span>04</span>
+      <div>
+        <h3>Compliance regulatório e qualidade</h3>
+        <p>Processos alinhados a ANVISA, ICH-GCP e CEP/CONEP, com documentação rastreável e suporte a auditorias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ CARREIRAS ══ -->
+<section class="careers-section fade-in">
+  <span class="section-tag">Carreiras</span>
+  <h2 class="section-title">Trabalhe onde a ciência<br>encontra o cuidado</h2>
+  <p class="section-body">
+    Procuramos profissionais que combinem rigor técnico com empatia pelo
+    paciente. Veja as posições em recrutamento ativo ou envie seu currículo para
+    nosso banco de talentos.
+  </p>
+
+  <div class="jobs-list">
+    <div class="job-card">
+      <div>
+        <h3>Coordenador(a) de Estudos Clínicos</h3>
+        <p>Operações · Porto Alegre — Presencial</p>
+      </div>
+      <span>CLT</span>
+    </div>
+    <div class="job-card">
+      <div>
+        <h3>Enfermeiro(a) de Pesquisa Clínica</h3>
+        <p>Assistencial · Porto Alegre — Presencial</p>
+      </div>
+      <span>CLT</span>
+    </div>
+    <div class="job-card">
+      <div>
+        <h3>Estágio em Pesquisa Clínica</h3>
+        <p>Operações · Porto Alegre — Presencial</p>
+      </div>
+      <span>Estágio</span>
+    </div>
+  </div>
+
+  <div class="talent-box">
+    Não encontrou a vaga ideal? Envie seu currículo para
+    <a href="mailto:rh@cipors.com">rh@cipors.com</a>.
+  </div>
+</section>
+
 <footer>
   <div>
     <div class="footer-logo">CIPO</div>
@@ -142,6 +256,14 @@
     <a href="../index.html">Início</a>
     <a href="estudos.html">Estudos</a>
     <a href="#">Cookies</a>
+  </div>
+  <div class="footer-social" aria-label="Redes sociais">
+    <a href="https://www.instagram.com/cipors/" target="_blank" rel="noopener" aria-label="Instagram do CIPO">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/centro-integrado-de-pesquisa-em-oncologia-cipo" target="_blank" rel="noopener" aria-label="LinkedIn do CIPO">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5V19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10.5 19v-5.2c0-2.7 1.6-4.4 3.9-4.4 2.2 0 3.6 1.5 3.6 4.2V19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="6.5" cy="5.8" r="1.3" fill="currentColor"/></svg>
+    </a>
   </div>
   <div class="footer-copy">© 2026 CIPO | Centro Integrado de Pesquisa em Oncologia</div>
 </footer>

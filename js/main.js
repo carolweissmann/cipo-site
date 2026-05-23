@@ -36,7 +36,8 @@ function showPage(id) {
 
 /* ── EFEITO SOMBRA NA NAVBAR AO ROLAR ── */
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+  const navbar = document.getElementById('navbar') || document.querySelector('.navbar');
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 10);
   observeFades();
 });
 
@@ -66,14 +67,17 @@ function handleSubmit(event) {
 
   const nome = document.getElementById('nome').value.trim();
   const email = document.getElementById('email').value.trim();
+  const assunto = document.getElementById('assunto').value;
   const mensagem = document.getElementById('mensagem').value.trim();
+
   const success = document.getElementById('form-success');
   const form = document.getElementById('contact-form');
 
-  if (!nome || !email || !mensagem) {
-    alert('Por favor, preencha todos os campos antes de enviar.');
+  if (!nome || !email || !assunto || !mensagem) {
+    alert('Por favor, preencha Nome, E-mail, Assunto e Mensagem antes de enviar.');
     return;
   }
+
 
   const formData = new FormData(form);
 
@@ -94,8 +98,8 @@ function handleSubmit(event) {
 
 /* ── MENU MOBILE ── */
 function setupMobileMenu() {
-  const toggle = document.querySelector('.mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.mobile-toggle, .navbar-toggle');
+  const navLinks = document.querySelector('.nav-links, .navbar-links');
   const overlay = document.querySelector('.nav-overlay');
 
   if (!toggle || !navLinks) return;

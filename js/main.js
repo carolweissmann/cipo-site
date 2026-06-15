@@ -53,12 +53,38 @@ function observeFades() {
 
 /* ── BUSCA NOS ESTUDOS CLÍNICOS ── */
 // Filtra os blocos de estudos conforme o usuário digita
+function normalizeSearchText(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
 function filterStudies() {
-  const query = document.getElementById('search-input').value.toLowerCase();
+  const searchInput = document.getElementById('search-input');
+  if (!searchInput) return;
+
+  const query = normalizeSearchText(searchInput.value.trim());
+  const emptyState = document.getElementById('studies-empty-state');
+  let hasVisibleStudy = false;
+
   document.querySelectorAll('.cancer-type').forEach(block => {
-    const text = block.textContent.toLowerCase();
-    block.style.display = text.includes(query) ? '' : 'none';
+    const blockType = normalizeSearchText(block.dataset.type || '');
+    let hasVisibleCard = false;
+
+    block.querySelectorAll('.study-card').forEach(card => {
+      const text = normalizeSearchText(`${blockType} ${card.textContent}`);
+      const isMatch = !query || text.includes(query);
+      card.hidden = !isMatch;
+      if (isMatch) hasVisibleCard = true;
+    });
+
+    block.hidden = !hasVisibleCard;
+    if (query && hasVisibleCard) block.classList.add('visible');
+    if (hasVisibleCard) hasVisibleStudy = true;
   });
+
+  if (emptyState) emptyState.hidden = hasVisibleStudy;
 }
 
 /* ── FORMULÁRIO DE CONTATO ── */
@@ -128,6 +154,12 @@ function setupMobileMenu() {
 document.addEventListener('DOMContentLoaded', () => {
   setupMobileMenu();
   setTimeout(observeFades, 200);
+
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', filterStudies);
+    filterStudies();
+  }
 
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {

@@ -16,6 +16,11 @@
   font-size: 14px; color: var(--ink); width: 100%;
 }
 .estudos-search input::placeholder { color: var(--ink-soft); }
+.studies-empty-state {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: -24px 0 40px;
+}
 
 .cancer-type { margin-bottom: 52px; }
 .cancer-type-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
